@@ -9,8 +9,6 @@ std::map<int, std::string> swi;
 std::mutex border;
 
 void swimming(std::string name, float speed, std::map<int, std::string> &tablo) {
-	
-	
 	float distance = 0;
 	int time = 0;
 	border.lock();
