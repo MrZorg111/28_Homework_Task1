@@ -18,7 +18,7 @@ void swimming(std::string name, float speed, std::map<int, std::string> &tablo) 
 		time += 1;
 		distance += speed;
 		if (distance > 100) { distance = 100; };
-		std::cout << "\t--" << name << " проплыл " << distance << " метров!" << std::endl;
+		std::cout << "\t--" << name << " swam " << distance << " meters!" << std::endl;
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 	} while (distance < 100);
 	
@@ -34,13 +34,12 @@ void swimming(std::string name, float speed, std::map<int, std::string> &tablo) 
 
 
 int main() {
-	setlocale(LC_ALL, "rus");
 	std::string swim1, swim2, swim3, swim4, swim5, swim6;
 	float speed1, speed2, speed3, speed4, speed5, speed6 ;
 
-	std::cout << "¬ведите имена шести спортсменов разел€€ их пробелом! " << std::endl;
+	std::cout << "Enter the names of the six athletes separated by a space! " << std::endl;
 	std::cin >> swim1 >> swim2 >> swim3 >> swim4 >> swim5 >> swim6;
-	std::cout << "¬ведите скорость каждого спортсмена, так же через пробел! " << std::endl;
+	std::cout << "Enter the speed of each athlete, also separated by a space! " << std::endl;
 	std::cin >> speed1 >> speed2 >> speed3 >> speed4 >> speed5 >> speed6;
 
 	std::thread swimmer1(swimming, swim1, speed1, std::ref(swi));
@@ -61,7 +60,7 @@ int main() {
 	std::cout << "\n\n";
 
 	for (std::map<int, std::string>::iterator it = swi.begin(); it != swi.end(); it++) {
-		std::cout << "\t--«а врем€ " << it->first << " секунд , пловец(вцы) " << it->second << " проплыл(и) стометровку!" << std::endl;
+		std::cout << "\t--During the time " << it->first << " seconds, the swimmer(s) " << it->second << " swam(s) a hundred meters!" << std::endl;
 	}
 	
 	
